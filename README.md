@@ -1,6 +1,6 @@
 # ScienceCloud
 
-ScienceCloud provides a variety of computing, storage and networking services to meet the needs of your computational research. You can provision virtual servers, block storage devices, set up a firewall your own private network to create and scale your personal research infrastructure.
+[ScienceCloud](https://www.s3it.uzh.ch/en/scienceit/infrastructure/sciencecloud.html) provides a variety of computing, storage and networking services to meet the needs of the computational research of the lab. In this repository you will find all the information, tutorials and source code examples to get started with ScienceCloud computing services.
 
 ## User Guides and Tutorials
 
