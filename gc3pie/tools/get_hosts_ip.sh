@@ -1,5 +1,12 @@
 #!/bin/bash
-
+# 
+# This tool will provide the ip of the host which execuited each task
+#
+# Execution:
+# 	./get_hosts_ip.sh mysession
+#
+# $1: gets the name of the session
+#
 jobs=$(ls $1/jobs)
 for job in $jobs
 do
