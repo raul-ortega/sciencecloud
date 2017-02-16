@@ -7,6 +7,9 @@
 #
 # $1: gets the name of the session
 #
+
+gcloud list 2> /dev/null > hosts.txt
+
 jobs=$(ls $1/jobs)
 for job in $jobs
 do
@@ -17,7 +20,7 @@ do
 	if [ "$id" = "" ];then
 		echo -e $job "\tvms not found"
 	else
-		ip=$(gcloud list 2> /dev/null | grep "$id" | sed 's/ | /,/g' | awk -F',' '{print $4}')
+		ip=$(grep "$id" hosts.txt | sed 's/ | /,/g' | awk -F',' '{print $4}')
 		echo -e $job"\t"b$id"\t"$ip
 	fi
 done
