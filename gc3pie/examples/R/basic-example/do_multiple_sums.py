@@ -9,14 +9,14 @@ from gc3libs.cmdline import SessionBasedScript, \
 	existing_file, positive_int
 	
 #
-# 1) Decompress tar file
+# 1) Copy files
 # 2) Run simulations
 # 3) Collect data (manually)
 #
 #
 
 # .      .----------------.       .----------------.         .----------------. 
-# .      |run bash script |       |run bash script | .....   |run bash script | 
+# .      |  run R script  |       |  run R script  | .....   |  run R script  | 
 # .      `----------------'       `----------------'         `----------------' 
 # .               \                       |                         /
 # .                \                      |                        /
@@ -28,9 +28,9 @@ from gc3libs.cmdline import SessionBasedScript, \
 # .                      \                |                  /
 # .                       \               |                 /
 # .                        \              |                /
-# .                        .--------------------------------.
-# .                        |  collect csv files from ouput  |
-# .                        `--------------------------------'
+# .                        .-----------------------------------.
+# .                        | collect data from standard ouput  |
+# .                        `-----------------------------------'
 
 
 if __name__ == '__main__':
@@ -45,11 +45,23 @@ class RScript(SessionBasedScript):
 
     Call this python script as:
 
-	    python do-multiple-sums.py R_file number_of_replicas
-	
-    The R script is called as:
+	    python do-multiple-sums.py Bash_file R_file number_of_replicas
 
-	    R --quiet --vanilla < sum.R  | grep '\[1\]' | sed 's/\[1\] \"//g' | sed 's/\"//g'
+		Bash_file is used to invoke the R command
+	
+		R_file is the R script we want to run.
+	
+    The R script is invoked from the bash script as:
+
+	 /usr/bin/R --slave --vanilla < sum.R 2>/dev/null | sed 's/\[1\] \"//g' | sed 's/\"//g'
+
+	 --slave		Make R run as quietly as possible. This option is intended to support programs which use R to compute 					results for them. It implies --quiet and --no-save. 		
+	 --vanilla		Combines --no-save, --no-environ, --no-site-file, --no-init-file and --no-restore.	
+	  			https://cran.r-project.org/doc/manuals/R-intro.html#Invoking-R-from-the-command-line
+
+	 2>/dev/null		Suppress "During startup - Warning messages"
+	 sed 's/\[1\] \"//g'	To remove "[1]"
+	 sed 's/\"//g'		To remove quotes
 
     """
     def __init__(self):
