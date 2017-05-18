@@ -5,7 +5,7 @@
 ## Links
 ### ScienceCloud Web Inteface
 
-[https://cloud.s3it.uzh.ch](https://cloud.s3it.uzh.ch)
+* [https://cloud.s3it.uzh.ch](https://cloud.s3it.uzh.ch)
 
 ### User Guides and Tutorials
 
