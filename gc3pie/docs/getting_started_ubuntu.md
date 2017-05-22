@@ -110,7 +110,7 @@ cd ~/basic-example
 
 wget https://github.com/bascomptelab/sciencecloud/raw/master/gc3pie/examples/bash/basic-example/do_multiple_sums.py
 
-wget https://github.com/bascomptelab/sciencecloud/blob/master/gc3pie/examples/bash/basic-example/sum.sh
+wget https://github.com/bascomptelab/sciencecloud/raw/master/gc3pie/examples/bash/basic-example/sum.sh
 ```    
 
 Edit do_multiple_sums.py python script:
