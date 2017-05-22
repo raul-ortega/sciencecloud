@@ -148,7 +148,14 @@ export OS_PASSWORD=$mypassword
 unset OS_REGION_NAME
 export PYTHONPATH=$PWD
 ```
-Save with ^O and exit ^X and give execution permission:
+
+Save and exit
+```
+^O
+^X
+```
+
+Give execution permission:
 ```
 chmod +x exports.sh
 ```
@@ -160,7 +167,7 @@ Run export.sh and enter password:
 
 Launch python script resource sciencecloud:
 ```
-do_multiple_sums.py sum.sh 10 -r localhost -C 5
+do_multiple_sums.py sum.sh 10 -r sciencecloud -C 5
 ```
 
 Show results:
