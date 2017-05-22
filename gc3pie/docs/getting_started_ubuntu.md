@@ -40,7 +40,6 @@ mkdir ~/.gc3/
 ```
 
 Download configuration file:
-
 ``` 
 wget https://github.com/bascomptelab/sciencecloud/raw/master/gc3pie/docs/gc3pie.conf
 
@@ -53,7 +52,7 @@ Edit image_id parameter in resource [sciencecloud] section in gc3pie.conf file:
 image_id=820738e3-0ef5-49d2-ab01-f780fa57d3d5
 ```
 
-Create a key pair (follow instruction of ScienceCloud Web interface >> Access & y Security >> Import Key Pairs
+Create a key pair (follow instructions of ScienceCloud Web interface >> Access & y Security >> Import Key Pairs
 ```
         Description:
 
@@ -75,13 +74,15 @@ Create a key pair (follow instruction of ScienceCloud Web interface >> Access & 
 Edit user and key pair in [sciencecloud] section in gc3pie.conf file:
 ```
     vm_auth=ssh_user_ubuntu
-    keypair_name=key1
-    public_key=~/.ssh/ScienceCloud.pub
+    keypair_name=your_key_pair_name
+    public_key=~/.ssh/your_key_pair_name.pub
 ```
 
 Create/Copy basic-example files from repository:
 ```
-mkdir -p basic-example
+mkdir ~/basic-example
+
+cd ~/basic-example
 
 wget https://github.com/bascomptelab/sciencecloud/raw/master/gc3pie/examples/bash/basic-example/do_multiple_sums.py
 
@@ -113,16 +114,15 @@ Create exports.sh:
     nano exports.sh
 ```
 Copy & paste this lines and replace your_user_name with yours:
-
 ```
-    export OS_AUTH_URL=https://cloud.s3it.uzh.ch:5000/v2.0
-    export OS_USERNAME=your_user_name
-    export OS_TENANT_NAME=bascompte.ieu.mnf.uzh
-    export OS_PROJECT_NAME=bascompte.ieu.mnf.uzh
-    read -p "Password: " -s mypassword
-    export OS_PASSWORD=$mypassword
-    unset OS_REGION_NAME
-    export PYTHONPATH=$PWD
+export OS_AUTH_URL=https://cloud.s3it.uzh.ch:5000/v2.0
+export OS_USERNAME=your_user_name
+export OS_TENANT_NAME=bascompte.ieu.mnf.uzh
+export OS_PROJECT_NAME=bascompte.ieu.mnf.uzh
+read -p "Password: " -s mypassword
+export OS_PASSWORD=$mypassword
+unset OS_REGION_NAME
+export PYTHONPATH=$PWD
 ```
 Save with ^O and exit ^X and give execution permission:
 ```
@@ -146,15 +146,15 @@ cat sum.d*/stdout.txt
 
 You should see something like this:
 ```   
-    67+9=76
-    93+66=159
-    80+16=96
-    14+62=76
-    15+26=41
-    43+73=116
-    7+64=71
-    25+3=28
-    69+88=157
-    7+73=80
+67+9=76
+93+66=159
+80+16=96
+14+62=76
+15+26=41
+43+73=116
+7+64=71
+25+3=28
+69+88=157
+7+73=80
 ```
     
