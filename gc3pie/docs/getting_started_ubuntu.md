@@ -19,7 +19,7 @@ python install.py
 
 Activate gc3pie:
 ```
-. /home/rortega/gc3pie/bin/activate
+. /home/username/gc3pie/bin/activate
 ```
 
 Install python-novaclient library:
