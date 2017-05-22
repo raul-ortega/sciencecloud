@@ -64,21 +64,21 @@ Save configuration file and exit:
 
 Create a key pair (follow instructions of ScienceCloud Web interface >> Access & y Security >> Import Key Pairs
 ```
-        Description:
+Description:
 
-        Key Pairs are how you login to your instance after it is launched.
+Key Pairs are how you login to your instance after it is launched.
 
-        Choose a key pair name you will recognise and paste your SSH public key into the space provided.
+Choose a key pair name you will recognise and paste your SSH public key into the space provided.
 
-        SSH key pairs can be generated with the ssh-keygen command:
+SSH key pairs can be generated with the ssh-keygen command:
 
-        ssh-keygen -t rsa -f cloud.key
+ssh-keygen -t rsa -f cloud.key
 
-        This generates a pair of keys: a key you keep private (cloud.key) and a public key (cloud.key.pub). Paste the contents of the public key file here.
+This generates a pair of keys: a key you keep private (cloud.key) and a public key (cloud.key.pub). Paste the contents of the public key file here.
 
-        After launching an instance, you login using the private key (the username might be different depending on the image you launched):
+After launching an instance, you login using the private key (the username might be different depending on the image you launched):
 
-        ssh -i cloud.key <username>@<instance_ip>
+ssh -i cloud.key <username>@<instance_ip>
 ```
 Example of how to create a key pair and adding it to the ssh agent:
 ```
@@ -97,9 +97,9 @@ eval $(ssh-agent -s)
 
 Edit user and key pair in [sciencecloud] section in gc3pie.conf file:
 ```
-    vm_auth=ssh_user_ubuntu
-    keypair_name=your_key_pair_name
-    public_key=~/.ssh/your_key_pair_name.pub
+vm_auth=ssh_user_ubuntu
+keypair_name=your_key_pair_name
+public_key=~/.ssh/your_key_pair_name.pub
 ```
 
 Create/Copy basic-example files from repository:
@@ -115,19 +115,19 @@ wget https://github.com/bascomptelab/sciencecloud/blob/master/gc3pie/examples/ba
 
 Edit do_multiple_sums.py python script:
 ```
-    After line
+After line
 
         existing_file, positive_int
 
-    add new line
+add new line
 
         from gc3libs.quantity import GB
 
-    Change last line
+Change last line
 
         stderr="stderr.txt")
 
-    by
+by
 
         stderr="stderr.txt",
         requested_memory=1*GB)
