@@ -167,7 +167,7 @@ Run export.sh and enter password:
 
 Launch python script resource sciencecloud:
 ```
-do_multiple_sums.py sum.sh 10 -r sciencecloud -C 5
+python do_multiple_sums.py sum.sh 10 -r sciencecloud -C 5
 ```
 
 Show results:
