@@ -46,10 +46,20 @@ wget https://github.com/bascomptelab/sciencecloud/raw/master/gc3pie/docs/gc3pie.
 mv gc3pie.conf ~/.gc3/
 ```
 
-Edit image_id parameter in resource [sciencecloud] section in gc3pie.conf file:
+Edit configuration file
+```
+nano ~/.gc3/gc3pie.conf
+```
+
+Modify image_id parameter in resource [sciencecloud] section in gc3pie.conf file:
 ```
 # - image_id of Ubuntu 14.04.04 (2017-05-19)
 image_id=820738e3-0ef5-49d2-ab01-f780fa57d3d5
+```
+Save configuration file and exit:
+```
+^O
+^X
 ```
 
 Create a key pair (follow instructions of ScienceCloud Web interface >> Access & y Security >> Import Key Pairs
