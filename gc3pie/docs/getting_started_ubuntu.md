@@ -70,6 +70,20 @@ Create a key pair (follow instructions of ScienceCloud Web interface >> Access &
 
         ssh -i cloud.key <username>@<instance_ip>
 ```
+Example of how to create a key pair and adding it to the ssh agent:
+```
+cd ~/.ssh
+
+ssh-keygen -t rsa -f tutorial.key
+
+chmod +400 ~/.ssh/tutorial.key.pub
+
+ssh-add ~/.ssh/tutorial.key.pub
+```
+If you need to start you ssh agent try:
+```
+eval $(ssh-agent -s)
+```
 
 Edit user and key pair in [sciencecloud] section in gc3pie.conf file:
 ```
