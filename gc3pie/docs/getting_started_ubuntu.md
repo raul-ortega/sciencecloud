@@ -13,9 +13,9 @@
 
 
 * Install gc3pie:
-
-    python install.py
-
+```
+python install.py
+```
 
 * Activate gc3pie:
 
@@ -42,7 +42,7 @@
 
    FIX ME!
   
-   wget 
+   wget https://github.com/bascomptelab/sciencecloud/raw/master/gc3pie/docs/gc3pie.conf
 
    mv gc3pie.conf ~/.gc3/
 
