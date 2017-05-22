@@ -90,7 +90,7 @@ chmod +400 ~/.ssh/tutorial.key.pub
 
 ssh-add ~/.ssh/tutorial.key.pub
 ```
-If you need to start you ssh agent try:
+If you need to start the ssh agent try:
 ```
 eval $(ssh-agent -s)
 ```
