@@ -21,7 +21,7 @@ Activate gc3pie:
 ```
 . /home/username/gc3pie/bin/activate
 ```
-** Note :** Change username by your computer user name.
+**Note :** Change username by your computer user name.
 
 Install python-novaclient library:
 ```
