@@ -7,21 +7,24 @@ sudo apt-get update
 sudo apt-get install gcc g++ git python-dev libffi-dev libssl-dev
 ```    
 
-Download gc3pie installer:
-```
-wget https://raw.githubusercontent.com/uzh/gc3pie/master/install.py
-```
-
 Install gc3pie:
 ```
+cd ~/
+
+wget https://raw.githubusercontent.com/uzh/gc3pie/master/install.py
+
 python install.py
 ```
 
-Activate gc3pie:
+Activate gc3pie: 
 ```
 . ~/gc3pie/bin/activate
 ```
-***Note :** Change username by your user name in your computer.*
+
+Check installation:
+```
+gc3utils --help
+```
 
 Install python-novaclient library:
 ```
