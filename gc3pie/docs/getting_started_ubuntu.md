@@ -19,20 +19,20 @@ python install.py
 
 Activate gc3pie:
 ```
-. /home/username/gc3pie/bin/activate
+. ~/gc3pie/bin/activate
 ```
-**Note :** Change username by your computer user name.
+***Note :** Change username by your user name in your computer.*
 
 Install python-novaclient library:
 ```
 pip install python-novaclient
 ```
-** Note :** Latest version of python-novaclient library generates AttributeError: 'SessionClient' object has no attribute 'auth_token' when submittin jobs. In that case is needed to downgrade python-novaclient to version 6.0.0 as follows:
+***Note :** Latest version of python-novaclient library generates AttributeError: 'SessionClient' object has no attribute 'auth_token' when submittin jobs. In that case is needed to downgrade python-novaclient to version 6.0.0 as follows:*
 ```
 pip install 'python-novaclient==6.0.0'
 ```
 
-Create configuration file
+Create configuration file:
 ```
 mkdir ~/.gc3/
 
@@ -83,13 +83,16 @@ ssh-keygen -t rsa -f tutorial.key
 chmod +400 ~/.ssh/tutorial.key.pub
 
 ssh-add ~/.ssh/tutorial.key.pub
+
+cat ~/.ssh/tutorial.key.pub
 ```
-If you need to start the ssh agent try:
+
+***Note:** If you need to start the ssh agent try:*
 ```
 eval $(ssh-agent -s)
 ```
 
-Edit user and key pair in [sciencecloud] section in gc3pie.conf file:
+Change key pair in [sciencecloud] section in gc3pie.conf file:
 ```
 vm_auth=ssh_user_ubuntu
 keypair_name=your_key_pair_name
@@ -113,11 +116,11 @@ After line
 
         existing_file, positive_int
 
-add new line
+add thie new line
 
         from gc3libs.quantity import GB
 
-Change last line
+Change the last line
 
         stderr="stderr.txt")
 
@@ -149,7 +152,7 @@ Save and exit
 ^X
 ```
 
-Give execution permission:
+Give execution permission (optional):
 ```
 chmod +x exports.sh
 ```
