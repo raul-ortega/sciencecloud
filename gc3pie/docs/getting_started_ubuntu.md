@@ -1,4 +1,4 @@
-# Getting started with gc3pie on ubuntu 14.04
+# Getting started with gc3pie on ubuntu 14.04/16.04
 
 Install development packages:
 ```
@@ -21,29 +21,23 @@ Activate gc3pie:
 ```
 . /home/username/gc3pie/bin/activate
 ```
+** Note :** Change username by your computer user name.
 
 Install python-novaclient library:
 ```
-pip install --upgrade pbr (optional)
-
 pip install python-novaclient
 ```
-
-If you get AttributeError: 'SessionClient' object has no attribute 'auth_token' then downgrade python-novaclient to version 6.0.0 if you get 
+** Note :** Latest version of python-novaclient library generates AttributeError: 'SessionClient' object has no attribute 'auth_token' when submittin jobs. In that case is needed to downgrade python-novaclient to version 6.0.0 as follows:
 ```
 pip install 'python-novaclient==6.0.0'
 ```
 
-Create directory
+Create configuration file
 ```
 mkdir ~/.gc3/
-```
 
-Download configuration file:
-``` 
-wget https://github.com/bascomptelab/sciencecloud/raw/master/gc3pie/docs/gc3pie.conf
+wget https://github.com/bascomptelab/sciencecloud/raw/master/gc3pie/docs/gc3pie.conf -O ~/.gc3/gc3pie.conf
 
-mv gc3pie.conf ~/.gc3/
 ```
 
 Edit configuration file
