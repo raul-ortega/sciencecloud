@@ -48,7 +48,7 @@ Edit configuration file
 nano ~/.gc3/gc3pie.conf
 ```
 
-Modify image_id parameter in resource [sciencecloud] section in gc3pie.conf file:
+Modify image_id parameter in resource [sciencecloud] section:
 ```
 # - image_id of Ubuntu 14.04.04 (2017-05-19)
 image_id=820738e3-0ef5-49d2-ab01-f780fa57d3d5
@@ -59,25 +59,7 @@ Save configuration file and exit:
 ^X
 ```
 
-Create a key pair (follow instructions of ScienceCloud Web interface >> Access & y Security >> Import Key Pairs
-```
-Description:
-
-Key Pairs are how you login to your instance after it is launched.
-
-Choose a key pair name you will recognise and paste your SSH public key into the space provided.
-
-SSH key pairs can be generated with the ssh-keygen command:
-
-ssh-keygen -t rsa -f cloud.key
-
-This generates a pair of keys: a key you keep private (cloud.key) and a public key (cloud.key.pub). Paste the contents of the public key file here.
-
-After launching an instance, you login using the private key (the username might be different depending on the image you launched):
-
-ssh -i cloud.key <username>@<instance_ip>
-```
-Example of how to create a key pair and adding it to the ssh agent:
+Create a Key Pair and add it to the SSH Agent:
 ```
 cd ~/.ssh
 
@@ -89,13 +71,21 @@ ssh-add ~/.ssh/tutorial.key.pub
 
 cat ~/.ssh/tutorial.key.pub
 ```
-
 ***Note:** If you need to start the ssh agent try:*
 ```
 eval $(ssh-agent -s)
 ```
 
-Change key pair in [sciencecloud] section in gc3pie.conf file:
+Import the key pair:
+```
+Log in to ScienceCloud web interface: [https://cloud.s3it.uzh.ch](https://cloud.s3it.uzh.ch)
+
+Browse to 'Access & y Security' -> 'Import Key Pairs':
+
+Copy & paste  the public Key:
+```
+
+Change authentication parameters in [sciencecloud] section in gc3pie.conf file:
 ```
 vm_auth=ssh_user_ubuntu
 keypair_name=your_key_pair_name
