@@ -78,11 +78,11 @@ eval $(ssh-agent -s)
 
 Import the key pair:
 ```
-Log in to ScienceCloud web interface: [https://cloud.s3it.uzh.ch](https://cloud.s3it.uzh.ch)
+Log in to ScienceCloud web interface: https://cloud.s3it.uzh.ch
 
 Browse to 'Access & y Security' -> 'Import Key Pairs':
 
-Copy & paste  the public Key:
+Copy & paste the public Key:
 ```
 
 Change authentication parameters in [sciencecloud] section in gc3pie.conf file:
