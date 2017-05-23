@@ -19,7 +19,7 @@ python install.py
 
 Activate gc3pie:
 ```
-. /home/rortega/gc3pie/bin/activate
+. /home/username/gc3pie/bin/activate
 ```
 
 Install python-novaclient library:
@@ -46,29 +46,39 @@ wget https://github.com/bascomptelab/sciencecloud/raw/master/gc3pie/docs/gc3pie.
 mv gc3pie.conf ~/.gc3/
 ```
 
-Edit image_id parameter in resource [sciencecloud] section in gc3pie.conf file:
+Edit configuration file
+```
+nano ~/.gc3/gc3pie.conf
+```
+
+Modify image_id parameter in resource [sciencecloud] section in gc3pie.conf file:
 ```
 # - image_id of Ubuntu 14.04.04 (2017-05-19)
 image_id=820738e3-0ef5-49d2-ab01-f780fa57d3d5
 ```
+Save configuration file and exit:
+```
+^O
+^X
+```
 
 Create a key pair (follow instructions of ScienceCloud Web interface >> Access & y Security >> Import Key Pairs
 ```
-        Description:
+Description:
 
-        Key Pairs are how you login to your instance after it is launched.
+Key Pairs are how you login to your instance after it is launched.
 
-        Choose a key pair name you will recognise and paste your SSH public key into the space provided.
+Choose a key pair name you will recognise and paste your SSH public key into the space provided.
 
-        SSH key pairs can be generated with the ssh-keygen command:
+SSH key pairs can be generated with the ssh-keygen command:
 
-        ssh-keygen -t rsa -f cloud.key
+ssh-keygen -t rsa -f cloud.key
 
-        This generates a pair of keys: a key you keep private (cloud.key) and a public key (cloud.key.pub). Paste the contents of the public key file here.
+This generates a pair of keys: a key you keep private (cloud.key) and a public key (cloud.key.pub). Paste the contents of the public key file here.
 
-        After launching an instance, you login using the private key (the username might be different depending on the image you launched):
+After launching an instance, you login using the private key (the username might be different depending on the image you launched):
 
-        ssh -i cloud.key <username>@<instance_ip>
+ssh -i cloud.key <username>@<instance_ip>
 ```
 Example of how to create a key pair and adding it to the ssh agent:
 ```
@@ -80,16 +90,16 @@ chmod +400 ~/.ssh/tutorial.key.pub
 
 ssh-add ~/.ssh/tutorial.key.pub
 ```
-If you need to start you ssh agent try:
+If you need to start the ssh agent try:
 ```
 eval $(ssh-agent -s)
 ```
 
 Edit user and key pair in [sciencecloud] section in gc3pie.conf file:
 ```
-    vm_auth=ssh_user_ubuntu
-    keypair_name=your_key_pair_name
-    public_key=~/.ssh/your_key_pair_name.pub
+vm_auth=ssh_user_ubuntu
+keypair_name=your_key_pair_name
+public_key=~/.ssh/your_key_pair_name.pub
 ```
 
 Create/Copy basic-example files from repository:
@@ -100,24 +110,24 @@ cd ~/basic-example
 
 wget https://github.com/bascomptelab/sciencecloud/raw/master/gc3pie/examples/bash/basic-example/do_multiple_sums.py
 
-wget https://github.com/bascomptelab/sciencecloud/blob/master/gc3pie/examples/bash/basic-example/sum.sh
+wget https://github.com/bascomptelab/sciencecloud/raw/master/gc3pie/examples/bash/basic-example/sum.sh
 ```    
 
 Edit do_multiple_sums.py python script:
 ```
-    After line
+After line
 
         existing_file, positive_int
 
-    add new line
+add new line
 
         from gc3libs.quantity import GB
 
-    Change last line
+Change last line
 
         stderr="stderr.txt")
 
-    by
+by
 
         stderr="stderr.txt",
         requested_memory=1*GB)
@@ -138,7 +148,14 @@ export OS_PASSWORD=$mypassword
 unset OS_REGION_NAME
 export PYTHONPATH=$PWD
 ```
-Save with ^O and exit ^X and give execution permission:
+
+Save and exit
+```
+^O
+^X
+```
+
+Give execution permission:
 ```
 chmod +x exports.sh
 ```
@@ -150,7 +167,7 @@ Run export.sh and enter password:
 
 Launch python script resource sciencecloud:
 ```
-do_multiple_sums.py sum.sh 10 -r localhost -C 5
+python do_multiple_sums.py sum.sh 10 -r sciencecloud -C 5
 ```
 
 Show results:
