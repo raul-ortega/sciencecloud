@@ -109,7 +109,7 @@ After line
 
         existing_file, positive_int
 
-add thie new line
+add this new line
 
         from gc3libs.quantity import GB
 
@@ -160,7 +160,7 @@ Launch python script resource sciencecloud:
 python do_multiple_sums.py sum.sh 10 -r sciencecloud -C 5
 ```
 
-Show results:
+Dump results:
 ```
 cat sum.d*/stdout.txt
 ```
